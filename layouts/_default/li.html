@@ -16,5 +16,9 @@
 		<h2 class="post-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
 		<p class="post-excerpt">{{ .Description }}&hellip;</p>
 		<span class="post-more"><a href="{{ .Permalink }}">Lire la suite <i class="icon-arrow-right"></i></a></span>
+		<span class="categories">{{ range .Params.categories }}
+            <a class="article-category-link {{ . | urlize }}" href="{{ $.Site.BaseURL }}categories/{{ . | urlize }}"><i class="fa fa-folder"></i>&nbsp;{{ . }}</a>&nbsp;
+            {{ end }}
+           </span>
 	</div>
 </article>
