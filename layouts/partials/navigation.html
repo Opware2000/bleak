@@ -9,8 +9,7 @@
         {{ range .Site.Menus.main }}
         {{ $currentNode := . }}
         <li class="menu-list-item">
-            {{ .Pre }}
-            <a class="home current js-ajax-link" href="{{ .URL }}">{{ .Name }}</a>
+            <a class="home current js-ajax-link" href="{{ .URL }}">{{ .Pre }} {{ .Name }}</a>
         </li>
         {{ end }}
     </div>
