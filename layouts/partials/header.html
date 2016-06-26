@@ -56,8 +56,10 @@
     {{end}}
         <link rel="canonical" href="{{ .Permalink }}" />
         <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
+          <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+
     {{ if .IsPage }}
-    <script type="application/ld+json">
+         <script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "Article",
@@ -106,17 +108,17 @@
              <div class="nav-logo"><h1><a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a></h1>
             </div>
             <div class="nav-menu">
-               <a class="cours" href="{{ .Site.BaseURL}}cours/">Cours</a>       
-               <a class="cours" href="{{ .Site.BaseURL}}download/">Download</a>       
+               <a class="cours" title="Cours de SVT" href="{{ .Site.BaseURL}}cours/"><i class="fa fa-book fa-2x" aria-hidden="true"></i></a>       
+               <a class="cours" title="Download Extensions Joomla!" href="{{ .Site.BaseURL}}download/"><i class="fa fa-joomla fa-2x" aria-hidden="true"></i></a>       
                
-              <a class="rss" href="{{ .Site.BaseURL }}index.xml">
-                <i class="icon-rss"></i>
+              <a class="rss" href="{{ .Site.BaseURL }}index.xml" title="Flux RSS">
+                <i class="fa fa-rss fa-2x" aria-hidden="true"></i>
               </a>
                 {{ if .IsPage }}
-                <a class="menu" data-action="toc" data-target="toc"><i class="icon-location"></i></a>
+                <a class="menu" data-action="toc" data-target="toc" title="Sommaire"><i class="fa fa-map-marker" aria-hidden="true"></i></a>
                 {{ end }}
                 {{ if .Site.Menus.main }}
-                <a class="menu" data-action="menu" data-target="menu"><i class="icon-menu"></i></a>
+                <a class="menu" data-action="menu" data-target="menu" title="Menu"><i class="fa fa-bars fa-2x" aria-hidden="true"></i></a>
                 {{ end }}
             </div>
           </nav>
