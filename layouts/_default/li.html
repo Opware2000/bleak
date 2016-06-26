@@ -5,9 +5,9 @@
 {{ end }}
 	<div class="inner">
 		<a class="post-link" href="{{ .Permalink }}"></a>
-		{{ if .Params.image }}
+		{{ if .Params.banner }}
 		<figure class="post-image">
-			<a href="{{ .Permalink }}"><img src="{{ .Params.image }}" alt="" /></a>
+			<a href="{{ .Permalink }}"><img src="{{ .Site.BaseURL }}/images/header/{{ .Params.banner }}" alt="" /></a>
 		</figure>
 		{{ end }}
 		<span class="post-meta">

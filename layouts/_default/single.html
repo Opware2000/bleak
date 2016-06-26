@@ -1,6 +1,10 @@
 {{ $baseurl := .Site.BaseURL }}
 {{ partial "header.html" . }}
-
+		<header id="header" class="header{{ if .Site.Params.cover }} has-cover{{ end }}">
+		{{ if .Params.banner}}
+		<div class="header-cover background-single" style="background-image: url({{ .Site.BaseURL }}images/header/{{ .Params.banner }});"></div>
+		{{ end }}
+		</header>
 <main class="content" role="main">
 	<article class="post">
 		<div class="inner">
