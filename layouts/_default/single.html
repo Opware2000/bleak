@@ -23,7 +23,9 @@
   			</section>
   			<section class="post-content {{ .Section }}">
   				{{ .Content }}
-  				<p><i class="fa fa-calendar"></i>&nbsp;Dernière modification&nsbp;: {{ .Lastmod.Format "02/01/2006-15:04:05.000" }}</p>
+  				{{ if (isset .Params "Lastmod") }}
+  				<p><i class="fa fa-calendar"></i>&nbsp;Dernière modification&nbsp;: {{ .Lastmod.Format "02/01/2006-15:04:05.000" }}</p>
+  				{{ end }}
   			</section>
 
   			<footer class="post-footer">
