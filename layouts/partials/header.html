@@ -115,8 +115,8 @@
               <a class="rss" href="{{ .Site.BaseURL }}index.xml" title="Flux RSS">
                 <i class="fa fa-rss fa-2x" aria-hidden="true"></i>
               </a>
-                {{ if .IsPage }}
-                <a class="menu" data-action="toc" data-target="toc" title="Sommaire"><i class="fa fa-map-marker" aria-hidden="true"></i></a>
+                {{ if (and (.IsPage) (eq .Section "cours")) }}
+                <a class="menu" data-action="toc" data-target="toc" title="Sommaire"><i class="fa fa-map-marker fa-2x" aria-hidden="true"></i></a>
                 {{ end }}
                 {{ if .Site.Menus.main }}
                 <a class="menu" data-action="menu" data-target="menu" title="Menu"><i class="fa fa-bars fa-2x" aria-hidden="true"></i></a>
