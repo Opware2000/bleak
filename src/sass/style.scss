@@ -572,6 +572,10 @@ body {
 			text-overflow: ellipsis;
 			white-space: nowrap;
 		}
+		h1 {
+			margin: 0;
+			padding: 0;
+		}
 	}
 
 	.nav-menu {
@@ -853,7 +857,7 @@ body {
 
 	.header-name {
 		font-weight: 700;
-		letter-spacing: -1px;
+		letter-spacing: 3px;
 		display: block;
 		line-height: 1em;
 		font-size: 2em;
@@ -993,7 +997,7 @@ body {
 		left: 0;
 		margin-top: -4em;
 		padding: 4em 0;
-		background: no-repeat fixed center 100% / cover;
+		background: no-repeat fixed center 70% / cover;
 		z-index: 1;
 
 		 &:before {
