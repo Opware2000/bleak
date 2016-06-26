@@ -1,0 +1,17 @@
+{{ if .Params.featured }}
+<article class="post featured">
+{{ else }}
+<article class="post">
+{{ end }}
+	<div class="inner">
+		<a class="post-link" href="{{ .Permalink }}"></a>
+		{{ if .Params.banner }}
+		<figure class="post-image">
+			<a href="{{ .Permalink }}"><img src="{{ .Site.BaseURL }}/images/{{ .Params.banner }}" alt="" /></a>
+		</figure>
+		{{ end }}
+		<h2 class="post-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+		<p class="post-excerpt">{{ .Summary }}&hellip;</p>
+		<span class="post-more"><a href="{{ .Permalink }}">Lire la définition <i class="icon-arrow-right"></i></a></span>
+	</div>
+</article>
