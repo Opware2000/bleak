@@ -1,0 +1,48 @@
+{{ $baseurl := .Site.BaseURL }}
+{{ partial "header.html" . }}
+		<header id="header" class="header{{ if .Site.Params.cover }} has-cover{{ end }}">
+		{{ if .Params.banner}}
+		<div class="header-cover background-single" style="background-image: url({{ .Site.BaseURL }}images/header/glossaire.jpg);"></div>
+		{{ end }}
+		</header>
+<main class="content" role="main">
+	<article class="post">
+		<div class="inner">
+
+			<div id="push">
+
+  			<header class="post-header">
+  				<h1 class="post-title">{{ .Title }}</h1>
+  			</header>
+  			<section class="post-content {{ .Section }}">
+  			{{ $data := .Data }} 
+  			<p>Liste des {{ .Title | lower }} du site. {{ ":simple_smile:" | emojify }}</p>
+
+  			<table class="striped responsive-table bordered">
+  				<thead>
+  					<th>{{ .Title }} du site </th>
+  					<th>Nombre de pages</th>
+  				</thead>
+  				{{ range $key, $value := .Data.Terms.ByCount }}
+                        <tr class="category-list-item">
+                            <td width="70%"><a class="category-list-link" href="{{ $value.Name | urlize }}">{{ $value.Name }}</a></td>
+                           	<td width="30%"> <span class="category-list-count">{{ $value.Count }}</span></td>
+                        </tr>
+                        {{ end }}
+             </table>
+
+
+  			</section>
+
+  			<footer class="post-footer">
+  			</footer>
+			</div>
+
+		</div>
+	</article>
+</main>
+
+{{ partial "footer.html" . }}
+ 
+
+
