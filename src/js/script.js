@@ -7,7 +7,7 @@ jQuery(function($) {
 	   Menu Function
 	   ========================================================================== */
 
-	body.on('click', '[data-action="menu"]', function() {
+	body.on('click', '[data-action="menu"], [data-action="toc"]', function() {
 		var action = $(this).data('action');
 		var target = $('[data-target="' + $(this).data('target') + '"]').not('[data-action]');
 		menu(target)
@@ -34,9 +34,23 @@ jQuery(function($) {
 		}
 	}
 
-	body.on('click', '.overlay, #menu a', function() {
+	body.on('click', '#menu a', function() {
 		if (html.hasClass('menu-active')) {
 			var target = $('[data-target="menu"]').not('[data-action]');
+			menu(target);
+		}
+	});
+
+	body.on('click', '#tocMenu a', function() {
+		if (html.hasClass('menu-active')) {
+			var target = $('[data-target="toc"]').not('[data-action]');
+			menu(target);
+		}
+	});
+
+	body.on('click', '.overlay', function() {
+		if (html.hasClass('menu-active')) {
+			var target = $('[data-target="menu"].active,[data-target="toc"].active').not('[data-action]');
 			menu(target);
 		}
 	});
@@ -74,7 +88,7 @@ jQuery(function($) {
 					'padding-bottom' : 100 / img.width() * img.height() + '%'
 				});
 			});
-	    });
+		});
 		var postlist = $('.post-list').masonry({
 			itemSelector			: '.post',
 			isAnimated				: false,
@@ -119,7 +133,7 @@ jQuery(function($) {
 	   ========================================================================== */
 
 	function comments() {
-		if (typeof disqus === 'undefined' || !document.getElementById('disqus_thread')) {
+		if (typeof disqus_shortname === 'undefined' || !document.getElementById('disqus_thread')) {
 			$('.post-comments').css({
 				'display' : 'none'
 			});
@@ -136,7 +150,7 @@ jQuery(function($) {
 
 			$.ajax({
 				type: "GET",
-				url: "//" + disqus + ".disqus.com/embed.js",
+				url: "//" + disqus_shortname + ".disqus.com/embed.js",
 				dataType: "script",
 				cache: true
 			});
@@ -144,28 +158,14 @@ jQuery(function($) {
 	}
 	comments();
 
-	/* ==========================================================================
-	   Reading Time
+  /* ==========================================================================
+	   Initialize and load Gist
 	   ========================================================================== */
 
-	function readingTime() {
-		// Don't execute on the front page
-		if (location.pathname === '/') {
-			return;
-		}
-
-		var post = body.find('article');
-		var postReadingTime = post.find('.post-reading-time');
-
-		post.readingTime({
-			readingTimeTarget: postReadingTime.find('.estimated-reading-time'),
-			wordCountTarget: postReadingTime.find('.word-count'),
-			error: function () {
-				postReadingTime.find('.post-reading-time').remove();
-			}
-		});
+	function gist() {
+    $('[data-gist-id]').gist();
 	}
-	readingTime();
+	gist();
 
 	/* ==========================================================================
 	   Reload all scripts after AJAX load
@@ -177,8 +177,8 @@ jQuery(function($) {
 		highlight();
 		video();
 		comments();
+    gist();
 		currentMenuFix();
-		readingTime();
 	}
 
 	/* ==========================================================================
@@ -277,16 +277,16 @@ jQuery(function($) {
 		}
 
 	    if (loading === false) {
-			var currentState = History.getState();
-			var url = $(this).prop('href');
-			var title = $(this).attr('title') || null;
+				var currentState = History.getState();
+				var url = $(this).prop('href');
+				var title = $(this).attr('title') || null;
 
-	        if (url.replace(/\/$/, "") !== currentState.url.replace(/\/$/, "")) {
-				loading = true;
-				html.addClass('loading');
-				NProgress.start();
-				History.pushState({}, title, url);
-	        }
+		    if (url.replace(/\/$/, "") !== currentState.url.replace(/\/$/, "")) {
+					loading = true;
+					html.addClass('loading');
+					NProgress.start();
+					History.pushState({}, title, url);
+		    }
 	    }
 	});
 
@@ -297,4 +297,5 @@ jQuery(function($) {
 			post.addClass('active');
 		}, 1);
 	});
+
 });

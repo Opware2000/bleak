@@ -1,39 +1,26 @@
 # Bleak
 
-An elegant AJAX driven theme for [Ghost](http://github.com/tryghost/ghost/) by [Peter Amende](http://zutrinken.com/).
+Theme based from Ghost [Bleak](https://github.com/zutrinken/bleak) by [zuntrinken](https://github.com/zutrinken).
 
-***
+## Index view
 
-_**Hint:** This theme works with AJAX, so it won’t work with multiple domains properly! Use redirects to only one domain instead. Also make sure you haven’t jQuery injected in your footer due to [Ghosts migration method](http://dev.ghost.org/no-more-jquery/). This can break the layout!_
+![Index page](https://raw.githubusercontent.com/Zenithar/hugo-theme-bleak/master/images/full_blog.png)
 
-## Demo
+## Post view
 
-* [Blog](http://bleak.zutrinken.com)
-* [Post](http://bleak.zutrinken.com/demo)
-* [Tags](http://bleak.zutrinken.com/tag/general)
-* [Author](http://bleak.zutrinken.com/author/zutrinken)
+![Post page](https://raw.githubusercontent.com/Zenithar/hugo-theme-bleak/master/images/full_post.png)
 
-## Features
+## Original theme credits
 
-* Responsive layout
-* Blog navigation
-* Post navigation
-* Cover images for blog, tag and author archives
-* Featured posts style
-* Automatic code syntax highlight and line numbers
-* Disqus support
-* Sharing buttons
+[Blog](http://bleak.zutrinken.com)
 
-## Setup
-
-To enable [Disqus](https://disqus.com/) comments go to your blogs code injection settings and add `<script>var disqus="YOUR_DISQUS_SHORTNAME";</script>` to your blog header.
 
 ## Development
 
 Install [Grunt](http://gruntjs.com/getting-started/):
 
 	npm install -g grunt-cli
-	
+
 Install Grunt modules:
 
 	npm install
@@ -54,7 +41,6 @@ Distribute Grunt project:
 
 	grunt build
 
-## Copyright & License
 
 Copyright (C) 2015-2016 Peter Amende - Released under the MIT License.
 

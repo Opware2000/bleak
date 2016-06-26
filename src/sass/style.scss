@@ -229,11 +229,13 @@ tt {
 	font-family: 'Inconsolata', monospace;
 	font-size: 0.875em;
 	line-height: 1.143em;
-	white-space: pre;
-	background: $color-gray-90;
 	color: #000;
 	font-weight: 400;
 	border-radius: 2px;
+}
+
+tt {
+	background: $color-gray-90;
 }
 
 pre {
@@ -243,7 +245,6 @@ pre {
 	font-family: 'Inconsolata', monospace;
 	white-space: pre;
 	overflow: auto;
-	background: $color-gray-65;
 	color: #fff;
 	box-sizing: border-box;
 
@@ -270,12 +271,10 @@ pre.codeblock {
 	code {
 		display: block;
 		border: 0;
-		padding: 1.5em;
 		padding-left: 4em;
-		margin: -1em;
+		margin: -1.6em;
 		white-space: inherit;
 		overflow-x: scroll;
-		background: $color-gray-90;
 	}
 
 	.lines {
@@ -284,15 +283,15 @@ pre.codeblock {
 		height: 100%;
 		left: 0;
 		top: 0;
-		padding: 1.5em 0;
 		border-right: 1px solid $color-gray-85;
 		font-size: 1em;
 		line-height: 1.5em;
 		text-align: right;
 		box-sizing: border-box;
-		background: $color-gray-90;
 		user-select: none;
 		cursor: default;
+		background: $color-gray-97;
+
 
 		.line {
 			display: block;
@@ -561,6 +560,7 @@ body {
 			max-width: none;
 			height: 2em;
 			margin: 0;
+			border-radius: 5px;
 		}
 
 		.name {
@@ -597,7 +597,7 @@ body {
 			&:focus {
 				background: $color-gray-90;
 			}
-			
+
 			i:before {
 				margin: auto;
 			}
@@ -617,7 +617,7 @@ body {
 	}
 }
 
-#menu {
+#menu, #tocMenu {
 	display: none;
 	position: fixed;
 	left: 50%;
@@ -1248,7 +1248,7 @@ body {
 			.inner {
 				background: $color-gray-15;
 				color: $color-gray-65;
-				
+
 				&:after {
 					content: '';
 					position: absolute;
@@ -1467,7 +1467,7 @@ body {
 			&:focus {
 
 			}
-			
+
 			&:before {
 				margin: auto;
 			}
@@ -1490,7 +1490,7 @@ body {
 }
 
 .post-comments {
-	margin: 4em 0 0;
+	margin: 4em 0;
 	border-radius: 2px;
 }
 
@@ -1633,7 +1633,7 @@ body {
 					@media only screen and (max-width: $breakpoint-phone) {
 						font-size: 1.5em;
 					}
-					
+
 					&:before {
 						margin: auto;
 					}
