@@ -1,5 +1,9 @@
 # Bleak
 
+Modification du Theme Hugo de [Zenithar](https://github.com/Zenithar/hugo-theme-bleak).
+
+---
+
 Theme based from Ghost [Bleak](https://github.com/zutrinken/bleak) by [zuntrinken](https://github.com/zutrinken).
 
 ## Index view
