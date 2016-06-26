@@ -126,8 +126,8 @@ ol > li:before {
 	color: $color-gray-15;
 }
 ul > li:before {
-	margin-top: 0.125em;
-	content: '*';
+//	margin-top: 0.125em;
+	content: '•';
 }
 ol {
 	list-style-type: none;
