@@ -53,11 +53,10 @@
         <link href="{{.RSSLink}}" rel="alternate" type="application/rss+xml" title="{{ if ne .URL "/" }}{{ .Title }} &middot; {{ end }}{{ .Site.Title }}" />
     {{end}}
         <link rel="canonical" href="{{ .Permalink }}" />
-        <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
-          <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 
     {{ if .IsPage }}
-         <script type="application/ld+json">
+         <script type="application/ld+json" async>
     {
         "@context": "http://schema.org",
         "@type": "Article",
@@ -70,17 +69,6 @@
         "description": "{{ .Description }}",
         "wordCount": {{ .WordCount }}
     }
-
-    </script>
-
-    <script type="text/javascript">
-    {{ $doc := . }}
-    {{ with .Site.Params.disqus }}
-      var disqus_shortname = '{{ . }}';
-      var disqus_identifier = '{{if isset $doc.Params "disqus_identifier" }}{{ index $doc.Params "disqus_identifier" }}{{ else }}{{ $doc.Permalink }}{{end}}';
-      var disqus_title = '{{if isset $doc.Params "disqus_title" }}{{ index $doc.Params "disqus_title" }}{{ else }}{{ $doc.Title }}{{end}}';
-      var disqus_url = '{{if isset $doc.Params "disqus_url" }}{{ index $doc.Params "disqus_url" | html  }}{{ else }}{{ $doc.Permalink }}{{end}}';
-    {{ end }}
 
     </script>
     {{ end }}
@@ -103,7 +91,7 @@
               </a>
 			  	    {{ end }}
             </div>
-             <div class="nav-logo"><h1><a href="{{ .Site.BaseURL }}" title="{{ .Site.Title }}"><i class="fa fa-flask" aria-hidden="true"></i>&nbsp;{{ .Site.Title }}</a></h1>
+             <div class="nav-logo"><h1 style="font-weight:300;"><a href="{{ .Site.BaseURL }}" title="{{ .Site.Title }}"><i class="fa fa-flask" aria-hidden="true"></i>&nbsp;{{ .Site.Title }}</a></h1>
             </div>
             <div class="nav-menu">
                <a class="cours hide-phone" title="Cours de SVT" href="{{ .Site.BaseURL}}cours/"><i class="fa fa-briefcase fa-2x" aria-hidden="true"></i></a>   

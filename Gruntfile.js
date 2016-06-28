@@ -54,7 +54,7 @@ module.exports = function(grunt) {
                     sourceMaps: true
                 },
                 files: {
-                    'static/<%=  config.cssTargetDir %>/style.css': '<%=  config.cssSrcDir %>/style.scss'
+                    'static/<%=  config.cssTargetDir %>/stylebleak.css': '<%=  config.cssSrcDir %>/style.scss'
                 }
             },
             dist: {
@@ -63,7 +63,7 @@ module.exports = function(grunt) {
                     sourceMaps: false
                 },
                 files: {
-                    'static/<%=  config.cssTargetDir %>/style.css': '<%=  config.cssSrcDir %>/style.scss'
+                    'static/<%=  config.cssTargetDir %>/stylebleak.css': '<%=  config.cssSrcDir %>/style.scss'
                 }
             }
         },

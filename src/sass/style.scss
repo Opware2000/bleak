@@ -529,6 +529,7 @@ body {
 		h1 {
 			margin: 0;
 			padding: 0;
+			font-weight:300;
 		}
 	}
 
@@ -822,7 +823,7 @@ body {
 		color: $color-gray-15;
 		padding: 0;
 		margin: 0;
-
+		font-weight:300;
 		em {
 			font-family: 'Helvetica Neue', sans-serif;
 			position: relative;
@@ -1404,6 +1405,7 @@ body {
 				background: $color-primary-active;
 			}
 		}
+	}
 	.post-categories {
 		float: left;
 		max-width: 60%;
@@ -1658,6 +1660,83 @@ body {
 	}
 }
 
+
+
+// --------------------------------------- PERSONNALISATIONS
+
+section.cours  {
+	 blockquote {
+	 	color: $rouge;
+	 }
+}
+#menu {
+	.sidebar-menu {
+		margin :0;
+		padding:0;
+		list-style: none;
+	}
+.menu-list-item {
+	i {
+	width: 1em;
+    padding-right: .5em;
+	}
+	}
+}
+#header {
+	em {
+		color : #FFF;
+	}
+}
+@media only screen and (max-width: $breakpoint-phone) {
+	.hide-phone {
+			display: none !important;
+	}
+	#nav .nav-logo h1 {
+    font-size: 1.5em !important;
+		}
+	}
+
+.post-footer {
+	.post-share {
+		float: right;
+		a {
+		font-size: .75em;
+    display: block;
+    width: 2em;
+    height: 2em;
+    line-height: 2em;
+    text-align: center;
+    text-decoration: none;
+    padding: .334em;
+    margin: 0 0 .334em .334em;
+    float: left;
+    border-radius: 2px;
+    color: #fff;
+    background: #737580;
+    	i {
+    		color : #FFF;
+    	    font-size: 1.5em;
+    		line-height: 1.5em;
+    		}	
+		}
+		a.icon-twitter {
+    background-color: #3ea9dd; 
+		}
+		a.icon-facebook {
+    background-color: #3c5a98;
+		}
+		a.icon-gplus {
+    background-color: #d14836;
+		}
+	}
+}
+
+.btn, .btn-large {
+// 	white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 /* ==========================================================================
    Pagination
    ========================================================================== */
@@ -1738,79 +1817,4 @@ body {
 		z-index: 50;
 		color: $color-gray-65;
 	}
-}
-
-// --------------------------------------- PERSONNALISATIONS
-}
-section.cours  {
-	 blockquote {
-	 	color: $rouge;
-	 }
-}
-#menu {
-	.sidebar-menu {
-		margin :0;
-		padding:0;
-		list-style: none;
-	}
-.menu-list-item {
-	i {
-	width: 1em;
-    padding-right: .5em;
-	}
-	}
-}
-#header {
-	em {
-		color : #FFF;
-	}
-}
-@media only screen and (max-width: $breakpoint-phone) {
-	.hide-phone {
-			display: none !important;
-	}
-	#nav .nav-logo h1 {
-    font-size: 1.5em !important;
-		}
-	}
-
-.post-footer {
-	.post-share {
-		float: right;
-		a {
-		font-size: .75em;
-    display: block;
-    width: 2em;
-    height: 2em;
-    line-height: 2em;
-    text-align: center;
-    text-decoration: none;
-    padding: .334em;
-    margin: 0 0 .334em .334em;
-    float: left;
-    border-radius: 2px;
-    color: #fff;
-    background: #737580;
-    	i {
-    		color : #FFF;
-    	    font-size: 1.5em;
-    		line-height: 1.5em;
-    		}	
-		}
-		a.icon-twitter {
-    background-color: #3ea9dd; 
-		}
-		a.icon-facebook {
-    background-color: #3c5a98;
-		}
-		a.icon-gplus {
-    background-color: #d14836;
-		}
-	}
-}
-
-.btn, .btn-large {
-// 	white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
