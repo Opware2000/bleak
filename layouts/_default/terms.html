@@ -16,24 +16,25 @@
   			</header>
   			<section class="post-content {{ .Section }}">
   			{{ $data := .Data }} 
-  			<p>Liste des {{ .Title | lower }} du site. {{ ":simple_smile:" | emojify }}</p>
-
+  			<p>Liste des {{ .Title | lower }} du site.</p>
+        {{ if eq (.Title | lower) "categories" }} 
+           {{ $classif := .Data.Terms.Alphabetical }} 
+        {{ else }}
+           {{ $classif := .Data.Terms.ByCount }} 
+        {{ end }}
   			<table class="striped responsive-table bordered">
   				<thead>
   					<th>{{ .Title }} du site </th>
   					<th>Nombre de pages</th>
   				</thead>
-  				{{ range $key, $value := .Data.Terms.ByCount }}
+  				{{ range $key, $value := .Data.Terms.Alphabetical  }}
                         <tr class="category-list-item">
-                            <td width="70%"><a class="category-list-link" href="{{ $value.Name | urlize }}">{{ $value.Name }}</a></td>
+                            <td width="70%"><a class="category-list-link" href="/{{ $data.Plural }}/{{ $value.Name | urlize }}">{{ $value.Name }}</a></td>
                            	<td width="30%"> <span class="category-list-count">{{ $value.Count }}</span></td>
                         </tr>
                         {{ end }}
              </table>
-
-
   			</section>
-
   			<footer class="post-footer">
   			</footer>
 			</div>
