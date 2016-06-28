@@ -35,8 +35,6 @@
     {{ else }}
         <meta name="description" content="{{ .Site.Params.description }}" />
     {{ end }}
-
-        <meta name="p:domain_verify" content="fc173d84e3a4de948ed4bda2908afd3e"/>
         <meta name="HandheldFriendly" content="True" />
         <meta name="MobileOptimized" content="320" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -105,17 +103,18 @@
               </a>
 			  	    {{ end }}
             </div>
-             <div class="nav-logo"><h1><a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a></h1>
+             <div class="nav-logo"><h1><a href="{{ .Site.BaseURL }}" title="{{ .Site.Title }}"><i class="fa fa-flask" aria-hidden="true"></i>&nbsp;{{ .Site.Title }}</a></h1>
             </div>
             <div class="nav-menu">
-               <a class="cours" title="Cours de SVT" href="{{ .Site.BaseURL}}cours/"><i class="fa fa-book fa-2x" aria-hidden="true"></i></a>       
-               <a class="cours" title="Download Extensions Joomla!" href="{{ .Site.BaseURL}}download/"><i class="fa fa-joomla fa-2x" aria-hidden="true"></i></a>       
+               <a class="cours hide-phone" title="Cours de SVT" href="{{ .Site.BaseURL}}cours/"><i class="fa fa-briefcase fa-2x" aria-hidden="true"></i></a>   
+                <a class="cours hide-phone" title="Glossaire" href="{{ .Site.BaseURL}}glossaire/"><i class="fa fa-book fa-2x" aria-hidden="true"></i></a>     
+               <a class="cours hide-phone" title="Download Extensions Joomla!" href="{{ .Site.BaseURL}}download/"><i class="fa fa-joomla fa-2x" aria-hidden="true"></i></a>       
                
               <a class="rss" href="{{ .Site.BaseURL }}index.xml" title="Flux RSS">
                 <i class="fa fa-rss fa-2x" aria-hidden="true"></i>
               </a>
-                {{ if .IsPage }}
-                <a class="menu" data-action="toc" data-target="toc" title="Sommaire"><i class="fa fa-map-marker" aria-hidden="true"></i></a>
+                {{ if (and (.IsPage) (eq .Section "cours")) }}
+                <a class="menu" data-action="toc" data-target="toc" title="Sommaire"><i class="fa fa-map-marker fa-2x" aria-hidden="true"></i></a>
                 {{ end }}
                 {{ if .Site.Menus.main }}
                 <a class="menu" data-action="menu" data-target="menu" title="Menu"><i class="fa fa-bars fa-2x" aria-hidden="true"></i></a>

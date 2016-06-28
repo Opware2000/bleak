@@ -6,13 +6,32 @@
     </div>
 
     <div class="menu-list">
-        {{ range .Site.Menus.main }}
-        {{ $currentNode := . }}
-        <li class="menu-list-item">
-            {{ .Pre }}
-            <a class="home current js-ajax-link" href="{{ .URL }}">{{ .Name }}</a>
-        </li>
-        {{ end }}
+
+                <ul class="sidebar-menu">
+          {{ $currentNode := . }}
+          {{ range .Site.Menus.main.ByWeight }}
+              {{ if .HasChildren }}
+            <li class="sub-menu{{if $currentNode.HasMenuCurrent "main" . }} active{{end}} menu-list-item">
+            <a href="javascript:;home current js-ajax-link" class="">
+                {{ .Pre }} ---
+                <span>{{ .Name }}</span>
+                <span class="menu-arrow arrow_carrot-right"></span>
+            </a>
+            <ul class="sub">
+                {{ range .Children }}
+                <li{{if $currentNode.IsMenuCurrent "main" . }} class="active"{{end}}><a href="{{.URL}}" class="home current js-ajax-link">{{ .Pre }}&nbsp; {{ .Name }} </a> </li>
+                {{ end }}
+            </ul>
+          {{else}}
+            <li class="menu-list-item">
+            <a class="" href="{{.URL}}">
+                {{ .Pre }}
+                <span>{{ .Name }}</span>
+            </a>
+          {{end}}
+          </li>
+          {{end}}
+          </ul>
     </div>
 
 </div>

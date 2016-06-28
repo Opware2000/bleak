@@ -59,7 +59,7 @@ $color-primary-active:     $color-green-72; /* Dark */
 
 /* 1. Colors
    ========================================================================== */
-
+$rouge: color("materialize-red", "base") !default;
 $primary-color: color("green", "lighten-2") !default;
 $primary-color-light: lighten($primary-color, 15%) !default;
 $primary-color-dark: darken($primary-color, 15%) !default;

@@ -1,83 +1,88 @@
 {{ $baseurl := .Site.BaseURL }}
 {{ partial "header.html" . }}
-		<header id="header" class="header{{ if .Site.Params.cover }} has-cover{{ end }}">
-		{{ if .Params.banner}}
-		<div class="header-cover background-single" style="background-image: url({{ .Site.BaseURL }}images/header/{{ .Params.banner }});"></div>
-		{{ end }}
-		</header>
+    <header id="header" class="header{{ if .Site.Params.cover }} has-cover{{ end }}">
+    {{ if .Params.banner}}
+    <div class="header-cover background-single" style="background-image: url({{ .Site.BaseURL }}images/header/{{ .Params.banner }});"></div>
+    {{ end }}
+    </header>
 <main class="content" role="main">
-	<article class="post">
-		<div class="inner">
+  <article class="post">
+    <div class="inner">
 
-			<div id="push">
+      <div id="push">
 
-  			<header class="post-header">
-  				<span class="post-meta">
-						<span class="post-date">{{ .Date.Format "2 Jan 2006" }}</span> <span class="reading-time">| <span class="estimated-reading-time">{{ .ReadingTime }} min.</span> (<span class="word-count">{{ .WordCount }}</span> mots)</span></span>
-  				</span>
-  				<div class="clear"></div>
-  				<h1 class="post-title">{{ .Title }}</h1>
-  			</header>
-  			<section class="post-table-of-content">
-  				 {{ .TableOfContents }}
-  			</section>
-  			<section class="post-content {{ .Section }}">
-  				{{ .Content }}
-  			</section>
+        <header class="post-header">
+          <span class="post-meta">
+            <span class="post-date"><i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;{{ .Date.Day }} {{ index $.Site.Data.mois (printf "%d" .Date.Month) }} {{ .Date.Year }}</span> <span class="reading-time">| <span class="estimated-reading-time">{{ .ReadingTime }} min.</span> (<span class="word-count">{{ .WordCount }}</span> mots)</span> | <span class="post-date">{{ range .Params.categories }}
+            <a class="article-category-link {{ . | urlize }}" href="{{ $.Site.BaseURL }}categories/{{ . | urlize }}"><i class="fa fa-folder"></i>&nbsp;{{ . }}</a>&nbsp;
+            {{ end }}</span>
+          </span>
+          <div class="clear"></div>
+          <h1 class="post-title">{{ .Title }}</h1>
+        </header>
+        <section class="post-table-of-content">
+           {{ .TableOfContents }}
+        </section>
+        <section class="post-content {{ .Section }}">
+          {{ .Content }}
+        </section>
 
-  			<footer class="post-footer">
-  				<div class="post-tags">
+        <footer class="post-footer">
+          <div class="post-tags">
             {{if .Params.tags }}
             {{ range $index, $tag := .Params.tags }}
                 <a href="{{ $baseurl }}/tags/{{ $tag | urlize }}/">{{ $tag }}</a>
             {{ end }}
             {{ end }}
-  				</div>
-  				<div class="post-share">
-  					<a class="fa fa-twitter" aria-hidden="true" href="https://twitter.com/share?text={{ .Title }}&url={{ .Permalink }}" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
-  						<span>Twitter</span>
-  					</a>
-  					<a class="fa fa-facebook-official" aria-hidden="true" href="https://www.facebook.com/sharer/sharer.php?u={{ .Permalink }}" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
-  						<span>Facebook</span>
-  					</a>
-  					<a class="fa fa-google-plus" aria-hidden="true" href="https://plus.google.com/share?url={{ .Permalink }}" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
-  						<span>Google+</span>
-  					</a>
-  				</div>
-  			</footer>
+          </div>
+           <div class="post-share">
+            <a class="icon-twitter" href="https://twitter.com/share?text={{ .Title }}&url={{ .Permalink }}}&via=@{{ .Site.Params.twitterName }}" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+              <i class="fa fa-twitter fa-2x " aria-hidden="true"></i><span>Twitter</span>
+            </a>
+            <a class="icon-facebook"  href="https://www.facebook.com/sharer/sharer.php?u={{ .Permalink }}" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+              <i class="fa fa-facebook-official fa-2x " aria-hidden="true"></i><span>Facebook</span>
+            </a>
+            <a class="icon-gplus"  href="https://plus.google.com/share?url={{ .Permalink }}&hl={{ .Site.LanguageCode }}" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+              <i class="fa fa-google-plus fa-2x " aria-hidden="true" ></i><span>Google+</span>
+            </a>
+            <a href="mailto:subject=Article%20à%20lire%20sur%20le%20{{ .Site.Title }}&body={{ .Permalink | safeURL }}" target="_blank">
+              <i class="fa fa-envelope-o fa-2x" aria-hidden="true"></i><span>E-mail</span>
+            </a>
+          </div>
+        </footer>
 
-  			{{ partial "comments.html" . }}
+        {{ partial "comments.html" . }}
 
-			</div>
+      </div>
 
-			<nav class="post-nav">
-				{{ if .NextInSection }}
-					<a class="post-nav-item post-nav-next" href="{{ .NextInSection.Permalink }}">
-						<section class="post-nav-teaser">
-							<span class="post-nav-icon"><i class="icon-arrow-left"></i></span>
-							<span class="post-nav-info">
-								<h4 class="post-nav-title">{{ .NextInSection.Title }}</h4>
-								<p class="post-nav-excerpt">{{ .NextInSection.Description }}&hellip;</p>
-							</span>
-						</section>
-					</a>
-				{{ end }}
-				{{ if .PrevInSection }}
-					<a class="post-nav-item post-nav-prev" href="{{ .PrevInSection.Permalink }}">
-						<section class="post-nav-teaser">
-							<span class="post-nav-icon"><i class="icon-arrow-right"></i></span>
-							<span class="post-nav-info">
-								<h4 class="post-nav-title">{{ .PrevInSection.Title }}</h4>
-								<p class="post-nav-excerpt">{{ .PrevInSection.Description }}&hellip;</p>
-							</span>
-						</section>
-					</a>
-				{{ end }}
-				<div class="clear"></div>
-			</nav>
+      <nav class="post-nav">
+        {{ if .NextInSection }}
+          <a class="post-nav-item post-nav-next" href="{{ .NextInSection.Permalink }}">
+            <section class="post-nav-teaser">
+              <span class="post-nav-icon"><i class="icon-arrow-left"></i></span>
+              <span class="post-nav-info">
+                <h4 class="post-nav-title">{{ .NextInSection.Title }}</h4>
+                <p class="post-nav-excerpt">{{ .NextInSection.Description }}&hellip;</p>
+              </span>
+            </section>
+          </a>
+        {{ end }}
+        {{ if .PrevInSection }}
+          <a class="post-nav-item post-nav-prev" href="{{ .PrevInSection.Permalink }}">
+            <section class="post-nav-teaser">
+              <span class="post-nav-icon"><i class="icon-arrow-right"></i></span>
+              <span class="post-nav-info">
+                <h4 class="post-nav-title">{{ .PrevInSection.Title }}</h4>
+                <p class="post-nav-excerpt">{{ .PrevInSection.Description }}&hellip;</p>
+              </span>
+            </section>
+          </a>
+        {{ end }}
+        <div class="clear"></div>
+      </nav>
 
-		</div>
-	</article>
+    </div>
+  </article>
 </main>
 
 {{ partial "footer.html" . }}
