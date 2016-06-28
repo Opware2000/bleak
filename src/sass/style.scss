@@ -1747,11 +1747,17 @@ section.cours  {
 	 	color: $rouge;
 	 }
 }
-
+#menu {
+	.sidebar-menu {
+		margin :0;
+		padding:0;
+		list-style: none;
+	}
 .menu-list-item {
 	i {
 	width: 1em;
     padding-right: .5em;
+	}
 	}
 }
 #header {
