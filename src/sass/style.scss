@@ -1741,11 +1741,25 @@ body {
 }
 
 // --------------------------------------- PERSONNALISATIONS
+}
 section.cours  {
- blockquote {
- 	color: $rouge;
- }
-}@media only screen and (max-width: $breakpoint-phone) {
+	 blockquote {
+	 	color: $rouge;
+	 }
+}
+
+.menu-list-item {
+	i {
+	width: 1em;
+    padding-right: .5em;
+	}
+}
+#header {
+	em {
+		color : #FFF;
+	}
+}
+@media only screen and (max-width: $breakpoint-phone) {
 	.hide-phone {
 			display: none !important;
 	}
