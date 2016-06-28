@@ -1745,4 +1745,11 @@ section.cours  {
  blockquote {
  	color: $rouge;
  }
-}
+}@media only screen and (max-width: $breakpoint-phone) {
+	.hide-phone {
+			display: none !important;
+	}
+	#nav .nav-logo h1 {
+    font-size: 1.5em !important;
+		}
+	}
