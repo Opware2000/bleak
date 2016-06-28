@@ -1773,3 +1773,44 @@ section.cours  {
     font-size: 1.5em !important;
 		}
 	}
+
+.post-footer {
+	.post-share {
+		float: right;
+		a {
+		font-size: .75em;
+    display: block;
+    width: 2em;
+    height: 2em;
+    line-height: 2em;
+    text-align: center;
+    text-decoration: none;
+    padding: .334em;
+    margin: 0 0 .334em .334em;
+    float: left;
+    border-radius: 2px;
+    color: #fff;
+    background: #737580;
+    	i {
+    		color : #FFF;
+    	    font-size: 1.5em;
+    		line-height: 1.5em;
+    		}	
+		}
+		a.icon-twitter {
+    background-color: #3ea9dd; 
+		}
+		a.icon-facebook {
+    background-color: #3c5a98;
+		}
+		a.icon-gplus {
+    background-color: #d14836;
+		}
+	}
+}
+
+.btn, .btn-large {
+// 	white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
