@@ -45,7 +45,7 @@
             <a class="icon-gplus"  href="https://plus.google.com/share?url={{ .Permalink }}&hl={{ .Site.LanguageCode }}" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
               <i class="fa fa-google-plus fa-2x " aria-hidden="true" ></i><span>Google+</span>
             </a>
-            <a href="mailto:subject=Article%20à%20lire&body={{ .Permalink | safeURL }} sur le {{ .Site.Title }}" target="_blank">
+            <a href="mailto:subject=Article%20à%20lire%20sur%20le%20{{ .Site.Title }}&body={{ .Permalink | safeURL }}" target="_blank">
               <i class="fa fa-envelope-o fa-2x" aria-hidden="true"></i><span>E-mail</span>
             </a>
           </div>
