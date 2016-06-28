@@ -6,10 +6,10 @@
     </div>
 
     <div class="menu-list">
-        {{ range .Site.Menus.main }}
+        {{ range .Site.Menus.main.ByWeight }}
         {{ $currentNode := . }}
         <li class="menu-list-item">
-            <a class="home current js-ajax-link" href="{{ .URL }}">{{ .Pre }} {{ .Name }}</a>
+            <a class="home current js-ajax-link" href="{{ .URL }}">{{ .Pre }}&nbsp; {{ .Name }}</a>
         </li>
         {{ end }}
     </div>
