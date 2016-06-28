@@ -13,7 +13,9 @@
 
   			<header class="post-header">
   				<span class="post-meta">
-						<span class="post-date"><i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;{{ .Date.Day }} {{ index $.Site.Data.mois (printf "%d" .Date.Month) }} {{ .Date.Year }}</span> <span class="reading-time">| <span class="estimated-reading-time">{{ .ReadingTime }} min.</span> (<span class="word-count">{{ .WordCount }}</span> mots)</span></span>
+						<span class="post-date"><i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;{{ .Date.Day }} {{ index $.Site.Data.mois (printf "%d" .Date.Month) }} {{ .Date.Year }}</span> <span class="reading-time">| <span class="estimated-reading-time">{{ .ReadingTime }} min.</span> (<span class="word-count">{{ .WordCount }}</span> mots)</span> | <span class="post-date">{{ range .Params.categories }}
+            <a class="article-category-link {{ . | urlize }}" href="{{ $.Site.BaseURL }}categories/{{ . | urlize }}"><i class="fa fa-folder"></i>&nbsp;{{ . }}</a>&nbsp;
+            {{ end }}</span>
   				</span>
   				<div class="clear"></div>
   				<h1 class="post-title">{{ .Title }}</h1>
@@ -33,11 +35,7 @@
             {{ end }}
             {{ end }}
             </div>
-            <div class="post-categories">
-            {{ range .Params.categories }}
-            <a class="article-category-link {{ . | urlize }}" href="{{ $.Site.BaseURL }}categories/{{ . | urlize }}"><i class="fa fa-folder"></i>&nbsp;{{ . }}</a>&nbsp;
-            {{ end }}
-  				</div>
+            
   				<div class="post-share">
   					<a class="fa fa-twitter" aria-hidden="true" href="https://twitter.com/share?text={{ .Title }}&url={{ .Permalink }}" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
   						<span>Twitter</span>
