@@ -79,17 +79,6 @@
       <section id="wrapper">
         <div id="ajax-container">
           <nav id="nav" class="nav">
-            <div class="nav-logo">
-              <a href="{{ .Site.BaseURL }}">
-      			  	{{ with .Site.Params }}
-      			  	{{ if .logo }}
-      			  	<img src="{{ .logo }}" alt="Logo"/>
-      			  	{{ else if .gravatarHash }}
-      				  <img src="https://www.gravatar.com/avatar/{{ .gravatarHash }}.png?s=32" alt="Logo"/>
-      			  	{{ end }}
-              </a>
-			  	    {{ end }}
-            </div>
              <div class="nav-logo"><h1 style="font-weight:300;"><a href="{{ .Site.BaseURL }}" title="{{ .Site.Title }}"><i class="fa fa-flask" aria-hidden="true"></i>&nbsp;{{ .Site.Title }}</a></h1>
             </div>
             <div class="nav-menu">
