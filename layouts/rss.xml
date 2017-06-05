@@ -21,7 +21,7 @@
 	  {{ range .Params.tags }}<category>#{{ . }}</category>{{ end}}
 	  <image>
 		  {{ if and (isset .Params "banner") (not (eq .Params.banner "")) }}   
-		  <url>{{ .Site.BaseURL }}images/header/{{ .Params.banner }}</url>
+		  <url>{{ .Site.BaseURL }}/images/header/{{ .Params.banner }}</url>
           {{ end }}
           {{ if (not (isset .Params "banner")) }}
 		  <url>{{ .Site.BaseURL }}/images/header/writingonlaptop.jpg</url>

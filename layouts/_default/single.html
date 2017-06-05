@@ -2,7 +2,7 @@
 {{ partial "header.html" . }}
     <header id="header" class="header{{ if .Site.Params.cover }} has-cover{{ end }}">
     {{ if .Params.banner}}
-    <div class="header-cover background-single" style="background-image: url({{ .Site.BaseURL }}images/header/{{ .Params.banner }});"></div>
+    <div class="header-cover background-single" style="background-image: url({{ .Site.BaseURL }}/images/header/{{ .Params.banner }});"></div>
     {{ end }}
     </header>
 <main class="content" role="main">
@@ -14,7 +14,7 @@
         <header class="post-header">
           <span class="post-meta">
             <span class="post-date"><i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;{{ .Date.Day }} {{ index $.Site.Data.mois (printf "%d" .Date.Month) }} {{ .Date.Year }}</span> <span class="reading-time">| <span class="estimated-reading-time">{{ .ReadingTime }} min.</span> (<span class="word-count">{{ .WordCount }}</span> mots)</span> | <span class="post-date">{{ range .Params.categories }}
-            <a class="article-category-link {{ . | urlize }}" href="{{ $.Site.BaseURL }}categories/{{ . | urlize }}"><i class="fa fa-folder"></i>&nbsp;{{ . }}</a>&nbsp;
+            <a class="article-category-link {{ . | urlize }}" href="{{ $.Site.BaseURL }}/categories/{{ . | urlize }}"><i class="fa fa-folder"></i>&nbsp;{{ . }}</a>&nbsp;
             {{ end }}</span>
           </span>
           <div class="clear"></div>
